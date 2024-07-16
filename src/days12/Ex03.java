@@ -13,11 +13,24 @@ public class Ex03 {
 		
 		Tv t1; // t1 == 객체
 		t1 = new Tv(); // 인스턴스화 하는 코딩, 객체 생성하는 코딩, // 객체 = 인스턴스
-
+		// 멤버들을 접근하는 방법 : 객체명, 필드명, 객체명, 메서드명()
+		// Tv. 클래스명.
+		t1.power();
+		System.out.println(t1.power ? "O" : "X"); // 켜졌다!
+		
+		
+		t1.channel = 10;
+		System.out.println(t1.channel);
+		t1.channelDown(); // 9
+		System.out.println(t1.channel);
+		
+		t1.power();
+		System.out.println(t1.power ? "O" : "X"); // 꺼졌다!
+		
+		
+		
 //동물
-//
 //당나귀 고양이 강아지
-//
 //강아지는 뉴 동물 
 	
 	
