@@ -15,67 +15,77 @@ import java.util.stream.IntStream;
 public class Ex01 {
 
 	public static void main(String[] args) throws IOException {
-		// 3반 30명 이름,국영수,총,평,등,전교등수 입력/출력
 		final int CLASS_COUNT = 3; // 3반이 있다.
 		final int STUDENT_COUNT = 30; // 30명이 있다.
-
-
-		String [][] names = new String [CLASS_COUNT][STUDENT_COUNT]; // 2차원 배열.
-		// 0면 국어, 1면 영어, 2면 수학, 3면 총점, 4면 등수, 5면 전교등수
-		// 행 - 반
-		// 열 - 학생들
-		int [][][] infos = new int [6] [CLASS_COUNT][STUDENT_COUNT]; // 3차원 배열.
-		// 수학점수 2반 19번 -> infos [2][1][18]
-		double [][] avgs = new double [CLASS_COUNT] [STUDENT_COUNT];
-
-		// 입력받은 학생 수 저장할 변수 선언
+		
+		Student [][] students = new Student [CLASS_COUNT][STUDENT_COUNT];
 		int [] counts = new int [CLASS_COUNT]; 
-
-		char con = 'y'; // continue의 con . 계속할거냐? 묻는것.
+		char con = 'y';
 
 		String name;
 		int kor, eng, mat, tot, rank, wrank;
-		double avg; // 학생 개인의 정보 변수 입력.
-
-		Scanner scanner = new Scanner(System.in); // 스캔받음.
-
-		int ban ; // 1반, 2반, 3반. 반의 변수선언.
+		double avg; 
+		
+		Scanner scanner = new Scanner(System.in);
+		int cldx ; //1반이라면 0.
 		do {
-			// 1. 반 입력?
 			System.out.printf("> 반 입력?");
-			ban = scanner.nextInt();
+			cldx = scanner.nextInt() -1;
 
-			// 2. 그 반의 학생 정보 입력?
-			System.out.printf("> %d반의 [%d]번 학생의 이름,국어,영어,수학점수 입력?", ban, counts[ban-1]+1);
+			System.out.printf("> %d반의 [%d]번 학생의 이름,국어,영어,수학점수 입력?", cldx +1 , counts[cldx]+1);
 			// ban - 1은 0부터 시작하니까.. 1을 빼주는것. count는 왜 +1이지???? 0번은 1번이기 때문.
 
 			name = getName(); //scanner.next();
 			kor = getScore();//scanner.nextInt();
 			eng = getScore();//scanner.nextInt();
 			mat = getScore();//scanner.nextInt();
+			
 			tot = kor + eng + mat;
 			avg = (double)tot/3;
 			wrank = rank = 1;
 
-			names[ban-1][counts[ban-1]] = name;
-			infos[0][ban-1][counts[ban-1]] = kor;
-			infos[1][ban-1][counts[ban-1]] = eng;
-			infos[2][ban-1][counts[ban-1]] = mat;
-			infos[3][ban-1][counts[ban-1]] = tot;
-			infos[4][ban-1][counts[ban-1]] = rank;
-			infos[5][ban-1][counts[ban-1]] = wrank;
-			avgs[ban-1][counts[ban-1]] = avg;
+			students[cldx][counts[cldx]] = new Student(); 
+			
+			students[cldx][counts[cldx]].name = name;
+			students[cldx][counts[cldx]].kor = kor;
+			students[cldx][counts[cldx]].eng = eng;
+			students[cldx][counts[cldx]].mat = mat;
+			students[cldx][counts[cldx]].tot = tot;
+			students[cldx][counts[cldx]].rank = rank;
+			students[cldx][counts[cldx]].wrank = wrank;
+			students[cldx][counts[cldx]].avg = avg;
 
-			counts [ban-1]++;
+			counts [cldx]++;
 
 
-
-			// 입력 계속?
 			System.out.print("> 입력 계속?");
 			con = (char)System.in.read();
 			System.in.skip(System.in.available());
 
 		} while (Character.toUpperCase(con) == 'Y'); // do while
+		
+		//반, 전 등수 처리 st
+		
+		
+		for (int i = 0; i < counts.length; i++) {
+			for (int j = 0; j < counts[i]; j++) {
+				
+				for (int i2 = 0; i2 < counts.length; i2++) {
+					for (int j2 = 0; j2 < counts[i2]; j2++) {
+						if (students[i][j].tot < students[i2][j2].tot) {
+							students[i][j].wrank++;
+							if (i==i2) {
+								students[i][j].rank++;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		//반, 전 등수 처리 
+		
+		
 
 		int 총학생수 = IntStream.of(counts).sum(); // 배열의 총 합이 나옴.
 		System.out.printf(" \t\t학생 정보 출력 (%d명)\n", 총학생수);
@@ -84,15 +94,8 @@ public class Ex01 {
 
 
 			for (int j = 0; j < counts[i]; j++) { // 학생수
-				System.out.printf("[%d]\t%s\t%d\t%d\t%d\t%d\t%.2f\t%d\t%d\n"
-						,j+1, names[i][j],
-						infos[0][i][j],
-						infos[1][i][j],
-						infos[2][i][j],
-						infos[3][i][j],
-						avgs[i][j],
-						infos[4][i][j],
-						infos[5][i][j]); // 1면은 0 -> 국어. 2면은 1, 영어.. . .
+				System.out.printf("[%d]",j+1); // 1면은 0 -> 국어. 2면은 1, 영어.. . .
+				students [i][j].dispInfo();
 			}
 		}
 
