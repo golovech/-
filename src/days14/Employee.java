@@ -1,11 +1,9 @@
 package days14;
 
-
-
 // 사원클래스
 // 모든 사원들이 공통적으로 가지고 있을 멤버들을 선언.
 
-public class Employee {
+public abstract class Employee { // 추상클래스
 	
 	// 필드
 	private String name;
@@ -17,7 +15,7 @@ public class Employee {
 	// 생성자
 	public Employee() {
 		super();
-		
+		System.out.println("> Employee 디폴트 생성자 호출됨.");
 	}
 
 	public Employee(String name, String addr, String tel, String hiredate) {
@@ -68,8 +66,12 @@ public class Employee {
 			System.out.printf("사원명: %s, 주소: %s, 연락처: %s, 입사일자: %s\n"
 					,this.name,this.addr,this.tel,this.hiredate);
 		}
-	
-	
-	
-	
+	/*
+	// 가상메서드 ==
+		public int getPay() { // 자식의 것을 부모가 가져오니까, 자동으로 오버라이딩 됐음.
+			return 0; 
+		}
+	*/
+		// This method requires a body instead of a semicolon
+		public abstract int getPay() ; // => 추상 메서드 : 몸체가 구현안된 불완전한 메서드.
 }

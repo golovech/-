@@ -68,17 +68,13 @@ class Triangle extends Shape{
 // 모든 클래스의 최상위 클래스 == Object 클래스. [ java.lang.Object ]
 class Point { // 컴파일러가 자동으로 Object 클래스 상속해버린다.
 	int x,y;
-	
-	int x , y; // 필드생성
-	Point(){	}
+	Point(){
+		this(0,0);
+	}
 	Point(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
-	Point(){
-		this(0,0);
-	}
-	
 	String getXY(){
 		return String.format("(%d, %d)", this.x,this.y);
 	}

@@ -50,7 +50,8 @@ public class Ex11 {
 		// 다운캐스팅 : 부모객체 --> 자식객체로 형변환 
 		// cast 연산자 사용하여 강제 형변환. 
 		// == (Regular) emp2;
-		Regular emp3 = (Regular) emp2;
+		Regular emp3 =  (Regular) emp2;
+		emp3.dispEmpInfo();
 		
 		
 		//int i = 100;
