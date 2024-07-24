@@ -80,11 +80,11 @@ public class Ex03 {
 			type = "임시직 사원";
 			Temp t = (Temp)emp;
 			
-		}  else if (emp instanceof SalesMan) { // 상속관계 있을 때, 자식 먼저 위치해야 함.
+		}  if (emp instanceof SalesMan) { // 상속관계 있을 때, 자식 먼저 위치해야 함.
 			type = "영업직 사원";
 			SalesMan s = (SalesMan)emp;
 			
-		}  else if (emp instanceof Regular) { // 부모는 아래에 두기. (instance 연산자 사용할 때: 자식 먼저 체크하기 때문.)
+		}  if (emp instanceof Regular) { // 부모는 아래에 두기. (instance 연산자 사용할 때: 자식 먼저 체크하기 때문.)
 			type = "정규직 사원";
 			Regular r = (Regular)emp;
 			
