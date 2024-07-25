@@ -7,7 +7,7 @@ package days18;
  *
  *			[	jdk 1.8 에 추가된 날짜, 시간	]
  *				java.time
- *				ㄴ j.t.chrono: 표준(ISO)가 아닌 달력 시스템을 위한 클레스 제공
+ *				ㄴ j.t.chrono: 표준(ISO)가 아닌 달력 시스템을 위한 클래스 제공
  *				ㄴ j.t.format: 형식화(파싱) 클래스 제공
  *				ㄴ j.t.temporal: 날짜, 시간의 필드(field)와 단위(unit) 클래스 제공
  *				ㄴ j.t.zone: 시간대(time-zone) 클래스 제공
