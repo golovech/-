@@ -27,7 +27,7 @@ public class Ex04 {
 		// Collections 클래스 
 		
 		ArrayList<Integer> list = new ArrayList<Integer>();
-//		list.add(3);
+		//list.add(3);
 //		list.add(5);
 //		list.add(2);
 //		list.add(4);
@@ -47,6 +47,12 @@ public class Ex04 {
 		System.out.println(list); 
 		Collections.reverse(list); // 다시 바꿔서 오름차순 정렬.
 		System.out.println(list); 
+		Collections.reverse(list);
+		rotate(list, 2);
+		Collections.swap(list, 1, 3);
+		System.out.println(list);
+		
+
 		
 		
 		
