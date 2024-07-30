@@ -1,52 +1,23 @@
 package days21;
 
-import java.util.Collections;
 import java.util.Scanner;
+// substring 을 이용해 첫글자~마지막글자 따올것.
+// for문을 사용해 값의 제한을 걸고 반복하면?
 
-public class Test01 {
 
-	public static void main(String[] args) {
-//		// 자연수 n이 입력으로 주어졌을 때 
-//		// 만약 n이 짝수이면 "n is even"을, 
-//		// 홀수이면 "n is odd"를 출력하는 코드를 작성해 보세요.
-//
-//		Scanner sc = new Scanner(System.in);
-//        int n = 5;
-//        		//sc.nextInt();
-//        //String m = sc.next();
-//		if (n % 2 == 0) {
-//			System.out.printf("%d is even",n);
-//		} else {
-//			System.out.printf("%d is odd", n);
-//		}
-//		System.out.println();
-		
-		// s 부터 remove? 후 add? collection 사용?
-
-//		String my_string = "He11oWor1d";
-//		String overwrite_string = "lloWorl";
-//		int s; // s는 인덱스위치값. 순번을 뜻함. 0~
-//		int index = my_string.indexOf("s");
-//		System.out.println(index);
-		
+class Solution {
+    public String solution(String my_string, String overwrite_string, int s) {
         String answer = "";
-       // return answer;
-		int [] m  = index;
-		
-		//문자열이 추가될때마다 char ++; 
-		// 
-		
-		for (int i = 0; i <= s; i++) {
-			System.out.printf("%d",i);
-			
-		}
-		System.out.println();
-		
-		
-		
-		
-		
-
-	}
-
+        return answer;
+        String code = "int x = Integer.parseInt(answer, s);";
+        
+        
+//        for (int i = 0; i < overwrite_string.substring(0,i); i++) {
+//			for (int k = 0; k < my_string.substring(i, k); k++) {
+//				
+//			}
+//		}
+        
+        
+    }
 }
